@@ -9,15 +9,15 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = "file:dev.db"
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
 model Book {
-  id              Int      @id @default(autoincrement())
+  id              Int    @id @default(autoincrement())
   title           String
   author          String
-  publishedYear   DateTime
+  publishedYear   Int
   genre           String
   availableCopies Int
 }
